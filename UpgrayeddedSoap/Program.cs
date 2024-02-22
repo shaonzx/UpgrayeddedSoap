@@ -1,11 +1,15 @@
 using SoapCore;
 using UpgrayeddedSoap.SoapCalls;
+using static SoapCore.DocumentationWriter.SoapDefinition;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+//builder.Services.AddControllers();
+
+builder.Services.AddSoapCore();
+builder.Services.AddScoped<ICustomerService, CustomerService>();
 
 var app = builder.Build();
 
